@@ -1,0 +1,1 @@
+// Backend index.js setup (Express + Socket.IO)

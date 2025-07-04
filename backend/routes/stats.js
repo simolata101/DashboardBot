@@ -1,0 +1,1 @@
+// Stats route that fetches server data
