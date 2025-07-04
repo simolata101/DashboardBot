@@ -1,29 +1,24 @@
-# Use Node.js base image
+# Base image
 FROM node:18
 
-# Create app directory
-WORKDIR /app
-
-# Copy backend files
-COPY backend ./backend
-
-# Copy frontend files
-COPY frontend ./frontend
-
-# Install backend dependencies
+# Set working directory for backend
 WORKDIR /app/backend
-RUN npm install
 
-# Install frontend dependencies and build it
+# Copy backend
+COPY backend/package.json .
+RUN npm install
+COPY backend .
+
+# Set working directory for frontend
 WORKDIR /app/frontend
-RUN npm install
-RUN npm run build
 
-# Serve the frontend with backend (e.g., via Express static files)
+# Copy frontend
+COPY frontend/package.json .
+COPY frontend/index.html .
+COPY frontend/src ./src
+RUN npm install && npm run build
+
+# Serve frontend using backend
 WORKDIR /app/backend
-
-# Expose the backend port
 EXPOSE 3000
-
-# Start the backend server
 CMD ["node", "index.js"]
