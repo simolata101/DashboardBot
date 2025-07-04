@@ -1,0 +1,32 @@
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(to bottom right, #2e1a47, #ffb6c1);
+  color: #fff;
+  text-align: center;
+}
+
+.dashboard {
+  padding: 2rem;
+}
+
+header {
+  margin-bottom: 2rem;
+}
+
+.card {
+  background-color: rgba(255, 255, 255, 0.1);
+  margin: 1rem auto;
+  padding: 1rem 2rem;
+  border-radius: 20px;
+  width: 300px;
+  box-shadow: 0 0 10px rgba(255, 182, 193, 0.7);
+}
+
+.card h2 {
+  margin-bottom: 0.5rem;
+}
+
+.card p {
+  font-size: 1.5rem;
+}
