@@ -1,4 +1,3 @@
-// File: src/App.jsx
 import { useEffect, useState } from 'react';
 import { createClient } from '@supabase/supabase-js';
 
@@ -27,15 +26,17 @@ function App() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gray-900 text-white p-4">
-      <h1 className="text-3xl font-bold text-purple-400 mb-6">📊 Message Log Viewer</h1>
+    <div className="min-h-screen bg-discordBg text-white p-4">
+      <h1 className="text-3xl font-bold text-discordPurple mb-4">
+        📊 Message Log Viewer
+      </h1>
 
       {loading ? (
-        <p className="text-gray-300">Loading data...</p>
+        <p>Loading...</p>
       ) : (
-        <div className="overflow-x-auto rounded-xl border border-gray-800">
+        <div className="overflow-x-auto bg-discordCard rounded-xl shadow-lg">
           <table className="min-w-full text-sm">
-            <thead className="bg-purple-800 text-white">
+            <thead className="bg-discordPurple text-white">
               <tr>
                 <th className="px-4 py-2 text-left">User ID</th>
                 <th className="px-4 py-2 text-left">Guild ID</th>
@@ -44,10 +45,10 @@ function App() {
               </tr>
             </thead>
             <tbody>
-              {logs.map((log, index) => (
-                <tr key={index} className="even:bg-gray-800 odd:bg-gray-900 border-t border-gray-700">
-                  <td className="px-4 py-2 font-mono">{log.user_id}</td>
-                  <td className="px-4 py-2 font-mono">{log.guild_id}</td>
+              {logs.map((log, idx) => (
+                <tr key={idx} className="even:bg-gray-800 odd:bg-gray-700">
+                  <td className="px-4 py-2">{log.user_id}</td>
+                  <td className="px-4 py-2">{log.guild_id}</td>
                   <td className="px-4 py-2">{log.date}</td>
                   <td className="px-4 py-2">{log.count}</td>
                 </tr>
